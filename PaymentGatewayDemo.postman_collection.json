@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "b29088ab-d19a-4360-b07e-d7450ea1a0bd",
+		"name": "PaymentGatewayDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26284862"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Dhruman\",\r\n    \"email\" : \"dhrumanjavadeveloper@gmail.com\",\r\n    \"password\" : \"Dhruman@12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"dhrumanjavadeveloper@gmail.com\",\r\n    \"password\" : \"Dhruman@12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "initiate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkaHJ1bWFuamF2YWRldmVsb3BlckBnbWFpbC5jb20iLCJpYXQiOjE3NDY3Njk2NzUsImV4cCI6MzQ5MzU1NzM2NCwic3ViIjoiZGhydW1hbmphdmFkZXZlbG9wZXJAZ21haWwuY29tIn0.F8fyTAvozW1lpDUbTMDFegkPINDRHO_m1uXUQMaIOPw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\" : \"120\",\r\n    \"currency\" : \"INR\",\r\n    \"description\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/payments/initiate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"payments",
+						"initiate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Signature",
+						"value": "W1khYAtRhndAcSihwrM4GMaCDp5hyrt14uXxyDAFXc0=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paymentId\" : \"74e2d79d-6d0c-4c28-880f-bb24c61886d4\",\r\n    \"status\" : \"SUCCESS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/payments/confirm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"payments",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkaHJ1bWFuamF2YWRldmVsb3BlckBnbWFpbC5jb20iLCJpYXQiOjE3NDY3NzQ0NzYsImV4cCI6MzQ5MzU2NzAwNywic3ViIjoiZGhydW1hbmphdmFkZXZlbG9wZXJAZ21haWwuY29tIn0.MymfFKFngXxF63VzSF7fKmoX9NkSK-SJTb-oKHveb20",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/payments/56b82adc-72af-44ea-bbb2-880693031c4a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"payments",
+						"56b82adc-72af-44ea-bbb2-880693031c4a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPayments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkaHJ1bWFuamF2YWRldmVsb3BlckBnbWFpbC5jb20iLCJpYXQiOjE3NDY3NzQ0NzYsImV4cCI6MzQ5MzU2NzAwNywic3ViIjoiZGhydW1hbmphdmFkZXZlbG9wZXJAZ21haWwuY29tIn0.MymfFKFngXxF63VzSF7fKmoX9NkSK-SJTb-oKHveb20",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/payments/56b82adc-72af-44ea-bbb2-880693031c4a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"payments",
+						"56b82adc-72af-44ea-bbb2-880693031c4a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
