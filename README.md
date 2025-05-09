@@ -30,7 +30,7 @@
 End points are authorized with Authorization: Bearer <your-token>
 
  ## Payment APIs
-Endpoint	                Description
+
 /api/payments/initiate	  Initiate a new payment (JWT req)
 
 /api/payments/confirm	    Simulate payment webhook
