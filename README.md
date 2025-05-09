@@ -32,8 +32,11 @@ End points are authorized with Authorization: Bearer <your-token>
  ## Payment APIs
 Endpoint	                Description
 /api/payments/initiate	  Initiate a new payment (JWT req)
+
 /api/payments/confirm	    Simulate payment webhook
+
 /api/payments/{id}	      Get payment status (JWT req)
+
 /api/payments	Paginated   list of payments (JWT)
 
 # HMAC-SHA256 Signature (for /confirm)
